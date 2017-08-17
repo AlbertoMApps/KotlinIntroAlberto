@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.prefs.Preferences
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,17 +22,39 @@ class MainActivity : AppCompatActivity() {
         val textViewAge2 : TextView = findViewById(R.id.txtAge2)
 
         println("the value is $name")
-        textView.setText(" Name is :   + $name")
+        textView.setText(" Name is : $name")
 
         //Llamando a metodo mayor de edad
         println( "Es esta persona mayor de edad??:  " + this.mayorEdad(edad) )
 
         //Trabajando cn clases externas..
-        println( "Nombre : " + persona.nombre + "Edad : " + persona.edad )
+        println( "Nombre : " + persona.nombre + " Edad : " + persona.edad )
         textViewName2.setText(" Name is : " + persona.nombre)
         textViewAge2.setText(" Age is : " + persona.edad)
 
-        
+        //Cambiamos el valor set de la persona invocada...
+        persona.edad = 17
+        println("Edad de la persona ahora... ${persona.edad}")
+        println("Persona es mayor de edad??? " + persona.esMayorEdad)
+
+        //Enumeradores call
+        println("LLamada enumeradores: " + Enumeradores.USD)
+        println("LLamada enumeradores: " + Enumeradores.ASD.simbolo)
+        println("LLamada enumeradores: " + Enumeradores.BOB.formato(120.0))
+
+        //Usando When clausula
+        var cuando = When()
+        println("LLamada when para cambiar de moneda: " + cuando.cambiarMoneda(120.0, Enumeradores.CLP))
+        println("LLamada para obtener moneda por region...: " + cuando.monedaPorGrupos(Enumeradores.USD))
+        println("LLamada para obetener moneda por region...: " + cuando.monedaPorGrupos(Enumeradores.CLP))
+
+        //Usando SmartCast
+        var smartCast = SmartCast()
+        println("LLamada smartCast interface : " +  smartCast.evaluarExpresion( SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4 ),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5) ),
+                SmartCast.Expresion.Numero(2) , SmartCast.Expresion.Numero(3) ) ) )
+
+        //
 
     }
 
