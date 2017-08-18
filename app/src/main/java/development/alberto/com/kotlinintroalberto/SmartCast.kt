@@ -19,4 +19,13 @@ class SmartCast {
         }
     }
 
+    fun evaluarExpresionConWhen(expresion:Expresion): Int = when(expresion){
+
+        is Expresion.Numero->expresion.valor
+        is Expresion.Sumar->evaluarExpresion(expresion.valor1) + evaluarExpresion(expresion.valor2) + evaluarExpresion(expresion.valor3)
+        is Expresion.Multiplicar->evaluarExpresion(expresion.valor1) * evaluarExpresion(expresion.valor2) * evaluarExpresion(expresion.valor3)
+        else->
+            throw IllegalArgumentException(" No se puede reconocer la expresion ")
+    }
+
 }

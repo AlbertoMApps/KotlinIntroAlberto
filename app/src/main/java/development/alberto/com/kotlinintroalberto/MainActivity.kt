@@ -54,6 +54,10 @@ class MainActivity : AppCompatActivity() {
                 SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5) ),
                 SmartCast.Expresion.Numero(2) , SmartCast.Expresion.Numero(3) ) ) )
 
+        println("LLamada smartCast interface : " +  smartCast.evaluarExpresionConWhen( SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4 ),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5) ),
+                SmartCast.Expresion.Numero(2) , SmartCast.Expresion.Numero(3) ) ) )
+
         //
 
     }
