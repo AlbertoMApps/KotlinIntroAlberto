@@ -1,8 +1,5 @@
-package development.alberto.com.kotlinintroalberto
+package development.alberto.com.kotlinintroalberto.intro.intro
 
-/**
- * Created by alber on 01/08/2017.
- */
 //References from Kotlin init
 //https://www.youtube.com/watch?v=hteNta7eucI#t=131.954394
 

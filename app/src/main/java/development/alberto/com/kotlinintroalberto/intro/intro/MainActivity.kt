@@ -1,10 +1,11 @@
-package development.alberto.com.kotlinintroalberto
+package development.alberto.com.kotlinintroalberto.intro.intro
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
-import java.util.prefs.Preferences
+import development.alberto.com.kotlinintroalberto.R
+import development.alberto.com.kotlinintroalberto.intro.pokemoncode.PokeDevCode
+import development.alberto.com.kotlinintroalberto.intro.pokemoncode.Pokemon
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,15 +51,21 @@ class MainActivity : AppCompatActivity() {
 
         //Usando SmartCast
         var smartCast = SmartCast()
-        println("LLamada smartCast interface : " +  smartCast.evaluarExpresion( SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4 ),
-                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5) ),
-                SmartCast.Expresion.Numero(2) , SmartCast.Expresion.Numero(3) ) ) )
+        println("LLamada smartCast interface : " +  smartCast.evaluarExpresion(SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5)),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(3))) )
 
-        println("LLamada smartCast interface : " +  smartCast.evaluarExpresionConWhen( SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4 ),
-                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5) ),
-                SmartCast.Expresion.Numero(2) , SmartCast.Expresion.Numero(3) ) ) )
+        println("LLamada smartCast interface : " +  smartCast.evaluarExpresionConWhen(SmartCast.Expresion.Sumar(SmartCast.Expresion.Multiplicar(SmartCast.Expresion.Numero(4),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(5)),
+                SmartCast.Expresion.Numero(2), SmartCast.Expresion.Numero(3))) )
 
-        //
+        //LLamamos los pokemones con un for...
+        var pokedevCode = PokeDevCode()
+        pokedevCode.main();
+        val pokemon:Pokemon = pokedevCode.generarPokemon(2)//Insertar a traves de un editText ya que es harcoded al momento
+        println(pokemon.nombre)
+        
+
 
     }
 
